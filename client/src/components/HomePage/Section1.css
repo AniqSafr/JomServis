@@ -1,0 +1,28 @@
+.body{
+    background-color: #D9D9D9;
+    font-family: "Playfair Display", serif;
+    padding: 20px;
+}
+
+.h-1{
+    color: rgb(243, 70, 2);
+    font-size: 4em;
+    line-height: 1;
+    text-align: center;
+}
+
+.h-2{
+    font-size: 4em;
+    line-height: 1;
+    text-align: center;
+}
+
+.form-inline{
+    padding-top: 10px;
+    padding-left: 35%;
+    padding-right: 30%;
+}
+
+.btn-outline-dark{
+    width: 200px;
+}

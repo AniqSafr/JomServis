@@ -1,0 +1,44 @@
+/* Navbar.css */
+
+/* Resetting default margin and font-family */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Adjustments for Logo */
+.d-inline-block {
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: -5px;
+}
+
+/* Adjustments for Logo Position */
+.form-inline {
+  margin-left: auto;
+  padding-right: 25px;
+}
+
+/* Adjustments for Login Button */
+.btn-secondary {
+  border-radius: 70px;
+  width: 150px;
+}
+
+/* Adjustments for Navbar Brand */
+.navbar-brand {
+  padding-left: 25px;
+}
+
+/* Adjustments for Nav Items */
+.nav-item {
+  margin-right: 30px;
+}
+
+.pr-10{
+  margin-right: 30px;
+}

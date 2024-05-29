@@ -3,7 +3,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/LoginPage/Login";
 import SignUp from "./components/RegisterPage/Register";
 import UserDetails from "./components/userDetails";
-import Test from "./components/UploadImages"
+import Test from "./components/Campaign/Card"
 import {
   BrowserRouter,
   Routes,

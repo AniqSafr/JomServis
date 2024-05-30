@@ -44,15 +44,17 @@ function UploadImages() {
         <input type="file" accept="image/*" onChange={onInputChange}></input>
         <button type="submit">Submit</button>
       </form>
-      {allImage.map((data) => (
-        <img
-          key={data._id}
-          src={`./components/HomePage/assets/${data.image}`}
-          alt={data.image}
-          height={100}
-          width={100}
-        />
-      ))}
+      {allImage == null
+        ? ""
+        : allImage.map((data) => {
+            return (
+              <img
+                src={require(`../components/HomePage/assets/images/${data.image}`)}
+                height={100}
+                width={100}
+              />
+            );
+          })}
     </div>
   );
 }

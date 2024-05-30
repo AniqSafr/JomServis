@@ -313,7 +313,7 @@ const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = "./components/HomePage/assets/";
+    const uploadDir = "../client/src/components/HomePage/assets/images";
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {

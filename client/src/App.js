@@ -10,6 +10,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Campaign from './screens/Campaign';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/sign-in" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/userDetails" element={<UserDetails />} />
+          <Route path="/campaign" element={<Campaign/>}/>
           <Route path="/test" element={<Test />} />
           <Route path ="/booking" element ={<Booking1/>}/>
       </Routes>

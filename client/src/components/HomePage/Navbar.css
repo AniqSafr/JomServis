@@ -1,14 +1,6 @@
 /* Navbar.css */
 
-/* Resetting default margin and font-family */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 
 /* Adjustments for Logo */
 .d-inline-block {
@@ -27,7 +19,10 @@ body {
 .btn-secondary {
   border-radius: 70px;
   width: 150px;
+  background-color: rgb(243, 70, 2) !important;
+  color: black; /* Set font color to black */
 }
+
 
 /* Adjustments for Navbar Brand */
 .navbar-brand {
@@ -36,9 +31,18 @@ body {
 
 /* Adjustments for Nav Items */
 .nav-item {
-  margin-right: 30px;
+  margin-right: auto;
 }
 
 .pr-10{
-  margin-right: 30px;
+  margin-right: 10px;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #000; /* Adjust the color as needed */
+}
+
+.nav-obj{
+  margin-right: 25px;
 }

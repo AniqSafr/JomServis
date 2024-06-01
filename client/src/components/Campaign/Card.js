@@ -6,10 +6,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import "./Card.css";
-import image from "../HomePage/assets/images/img_mountains_wide.jpg";
-import image1 from "../HomePage/assets/images/sime_darby.jpg";
-import image2 from "../HomePage/assets/images/DreamRide.jpg";
-import image3 from "../HomePage/assets/images/Grand_Finale.jpg";
+import image1 from "../HomePage/assets/images/Riang_Raya.jpg";
+import image2 from "../HomePage/assets/images/Promotion.png";
+import image3 from "../HomePage/assets/images/Year_End.jpg";
 
 // Modal component
 function MyVerticallyCenteredModal(props) {
@@ -26,14 +25,14 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Upcoming Event</h4>
+        <h4>Details Event</h4>
         <p>
           {props.content}
         </p>
         <img src={props.imgSrc} alt="Modal content" style={{ width: '100%' }} />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button variant="secondary" onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
@@ -57,23 +56,11 @@ function CardCampaign() {
       <Container>
         <Row>
           <Col className="p-0.5">
-            <Card onClick={() => handleCardClick(image3, 'Some quick example text to build on the card title and make up the bulk of the card\'s content.')}>
-              <Card.Img variant="top" src={image3} />
-              <Card.Body>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          </Row>
-          <Row>
-          <Col className="p-0.5">
             <Card onClick={() => handleCardClick(image1, 'Some quick example text to build on the card title and make up the bulk of the card\'s content.')}>
               <Card.Img variant="top" src={image1} />
               <Card.Body>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                <b>Riang Raya Offers</b>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -81,11 +68,38 @@ function CardCampaign() {
           </Row>
           <Row>
           <Col className="p-0.5">
-            <Card onClick={() => handleCardClick(image2, 'Some quick example text to build on the card title and make up the bulk of the card\'s content.')}>
+          <Card onClick={() => handleCardClick(image2, 
+    `Event: Auspicious Promotions at Sime Darby Motors City
+    Date: 23 - 25 February 2024
+    Location: Ara Damansara
+    Participating Brands:
+    - Auto Selection (Your Trusted Used Car Dealer)
+    - BMW
+    - BYD
+    - Ford
+    - Hyundai
+    - Jaguar
+    - Land Rover
+    - MINI
+    - Volvo
+    The event is hosted by Sime Darby Motors, and it features a festive theme with decorative elements such as lanterns and dragons, suggesting a celebration in conjunction with a cultural or festive period.`)}>
+
               <Card.Img variant="top" src={image2} />
               <Card.Body>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                <b>Apicious Promotion</b>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          </Row>
+          <Row>
+          <Col className="p-0.5">
+            <Card onClick={() => handleCardClick(image3, 'Some quick example text to build on the card title and make up the bulk of the card\'s content.')}>
+              <Card.Img variant="top" src={image3} />
+              <Card.Body>
+                <Card.Text>
+                  <b>Year-End Extravaganza</b>
                 </Card.Text>
               </Card.Body>
             </Card>

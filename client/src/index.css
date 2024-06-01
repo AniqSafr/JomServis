@@ -87,3 +87,9 @@ td {
   border: 1px solid black !important;
 }
 
+.btn-secondary {
+  border-radius: 70px;
+  width: 150px;
+  background-color: rgb(243, 70, 2) !important;
+  color: black; /* Set font color to black */
+}

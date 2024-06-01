@@ -222,24 +222,6 @@ app.post("/deleteUser", async (req, res) => {
   }
 });
 
-// app.post("/upload-image", async (req, res) => {
-//   const { base64 } = req.body;
-//   try {
-//     await Images.create({ image: base64 });
-//     res.send({ Status: "ok" });
-//   } catch (error) {
-//     res.send({ Status: "error", data: error });
-//   }
-// });
-
-// app.get("/get-image", async (req, res) => {
-//   try {
-//     await Images.find({}).then((data) => {
-//       res.send({ status: "ok", data: data });
-//     });
-//   } catch (error) {}
-// });
-
 app.get("/paginatedUsers", async (req, res) => {
   const allUser = await User.find({});
   const page = parseInt(req.query.page);

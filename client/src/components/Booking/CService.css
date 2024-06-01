@@ -1,0 +1,52 @@
+/* CService.css */
+.Booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.section-booking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh; /* Adjust height as needed */
+  width: 100%;
+  background-color: #f8f9fa; /* Light gray background for visibility */
+  padding: 20px;
+  text-align: center; /* Center text horizontally */
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+.custom-card {
+  width: 18rem;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.custom-card .card-body {
+  text-align: center;
+}
+
+.custom-card .btn {
+  margin-top: 10px;
+  width: 100%;
+}

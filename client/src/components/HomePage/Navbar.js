@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Navbar, Nav } from "react-bootstrap";
 import image from './assets/images/logo-removebg-preview.png';
 import './Navbar.css';
-import { faUser, faSearch, faAlignCenter } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Navbar() {
+function MyNavbar() {
     const [currentUser, setCurrentUser] = useState(null);
+    const [expanded, setExpanded] = useState(false);
+
+    const handleToggle = () => {
+        setExpanded(!expanded);
+    }
 
     useEffect(() => {
         const fetchCurrentUser = async () => {
@@ -37,52 +43,39 @@ function Navbar() {
 
     return (
         <div className='Navbar'>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to="/" className="navbar-brand">
-            <img src={image} width="40" height="30" className="d-inline-block align-top" alt="" />
-        </Link>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                    <Link to="/" className="nav-link">Home</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/booking" className="nav-link">Booking</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/campaign" className="nav-link">Campaign</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/inquiries" className="nav-link">Inquiries</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/feedback" className="nav-link">Feedback</Link>
-                </li>
-            </ul>
-        </div>
-        <div className="my-2 my-lg-0 mr-5 ">
-            {currentUser ? (
-                <Link to="/userDetails" className="btn btn-outline-light mr-5">
-                    <div>
-                        <FontAwesomeIcon
-                            icon={faUser}
-                            style={{ color: "black", width: "1em", marginRight: "0.5em" }}
-                        />
-                        {currentUser.fname}
+            <Navbar expand="lg" className="navbar-light bg-light" expanded={expanded}>
+                <Navbar.Brand as={NavLink} to="/">
+                    <img src={image} width="40" height="30" className="d-inline-block align-top" alt="" />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbarSupportedContent" onClick={handleToggle} />
+                <Navbar.Collapse id="navbarSupportedContent">
+                    <Nav className="nav-item">
+                        <Nav.Link as={NavLink} to="/" exact activeClassName="active" className='nav-obj'>Home</Nav.Link>
+                        <Nav.Link as={NavLink} to="/booking" activeClassName="active"className='nav-obj'>Booking</Nav.Link>
+                        <Nav.Link as={NavLink} to="/campaign" activeClassName="active"className='nav-obj'>Campaign</Nav.Link>
+                        <Nav.Link as={NavLink} to="/inquiries" activeClassName="active"className='nav-obj'>Inquiries</Nav.Link>
+                        <Nav.Link as={NavLink} to="/feedback" activeClassName="active"className='nav-obj'>Feedback</Nav.Link>
+                    </Nav>
+                    <div className="my-2 my-lg-0 mr-5">
+                        {currentUser ? (
+                            <NavLink to="/userDetails" className="btn btn-outline-light mr-5">
+                                <div>
+                                    <FontAwesomeIcon
+                                        icon={faUser}
+                                        style={{ color: "black", width: "1em", marginRight: "0.5em" }}
+                                    />
+                                    {currentUser.fname}
+                                </div>
+                            </NavLink>
+                        ) : (
+                            <div className='pr-10'>
+                                <NavLink to="/sign-in" className="btn btn-secondary my-2 my-sm-0">Login</NavLink>
+                            </div>
+                        )}
                     </div>
-                </Link>
-            ) : (
-                <div className='pr-10'>
-                    <Link to="/sign-in" className="btn btn-secondary my-2 my-sm-0">Login</Link>
-                </div>
-                
-            )}
+                </Navbar.Collapse>
+            </Navbar>
         </div>
-    </nav>
-</div>
-
-
     );
 }
-
-export default Navbar;
+export default MyNavbar;

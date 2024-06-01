@@ -4,11 +4,13 @@ import Login from "./components/LoginPage/Login";
 import SignUp from "./components/RegisterPage/Register";
 import UserDetails from "./components/userDetails";
 import Test from "./components/Campaign/Card"
+import Testing from "./screens/Campaign"
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
+import Campaign from './screens/Campaign';
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
@@ -25,7 +27,9 @@ function App() {
           <Route path="/sign-in" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/userDetails" element={<UserDetails />} />
+          <Route path="/campaign" element={<Campaign/>}/>
           <Route path="/test" element={<Test />} />
+          <Route path="/testing" element={<Testing />} />
       </Routes>
     </BrowserRouter>
     

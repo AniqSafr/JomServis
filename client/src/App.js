@@ -4,7 +4,6 @@ import Login from "./components/LoginPage/Login";
 import SignUp from "./components/RegisterPage/Register";
 import UserDetails from "./components/userDetails";
 import Test from "./components/Campaign/Card"
-import Testing from "./screens/Campaign"
 import {
   BrowserRouter,
   Routes,
@@ -29,7 +28,6 @@ function App() {
           <Route path="/userDetails" element={<UserDetails />} />
           <Route path="/campaign" element={<Campaign/>}/>
           <Route path="/test" element={<Test />} />
-          <Route path="/testing" element={<Testing />} />
       </Routes>
     </BrowserRouter>
     

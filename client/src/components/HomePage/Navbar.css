@@ -1,7 +1,4 @@
 /* Navbar.css */
-
-
-
 /* Adjustments for Logo */
 .d-inline-block {
   margin-right: 10px;
@@ -14,15 +11,6 @@
   margin-left: auto;
   padding-right: 25px;
 }
-
-/* Adjustments for Login Button */
-.btn-secondary {
-  border-radius: 70px;
-  width: 150px;
-  background-color: rgb(243, 70, 2) !important;
-  color: black; /* Set font color to black */
-}
-
 
 /* Adjustments for Navbar Brand */
 .navbar-brand {

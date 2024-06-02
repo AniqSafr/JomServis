@@ -1,0 +1,36 @@
+.container{
+    padding-left: 150px;
+}
+
+
+.profile-image {
+    width: 131px;
+    height: 140px;
+    border: 3px solid rgb(243, 70, 2);
+    object-fit: cover; /* Ensure the image is scaled to fit the container */
+  }
+
+.button{
+    padding-top: 10px;
+}
+
+.setting-buttons{
+    width: 50px;
+}
+
+.available-car{
+    padding-top: 30px;
+}
+
+.add-car{
+    width: 100px;
+}
+
+.second-col{
+    margin-right: 250px;
+}
+
+.form-control:focus {
+    border-color: rgb(243, 70, 2);
+    box-shadow: none;
+  }

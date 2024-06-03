@@ -1,14 +1,14 @@
 // Home.js
 import React from "react";
 import Navbar from "../components/HomePage/Navbar";
-import CService from "../components/Booking/CardOption";
+import ServiceType from '../components/Booking/ServiceType';
 
 function Booking1() {
   return (
     <div className="Booking1">
       <Navbar />
-      <div className="CService">
-        <CService />
+      <div className="ServiceType">
+        <ServiceType />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import SignUp from "./components/RegisterPage/Register";
 import UserDetails from "./components/userDetails";
 import Test from "./components/Campaign/Card"
 import Booking1 from './screens/Booking.js';
+import BookingServiceLocation from './screens/BookingServiceLocation.js';
 import Testing from "./components/Profile/Dashboard.js"
 import {
   BrowserRouter,
@@ -33,6 +34,7 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/testing" element={<Testing />} />
           <Route path ="/booking" element ={<Booking1/>}/>
+          <Route path="/in-site-service-location" element={<BookingServiceLocation/>}/>
       </Routes>
     </BrowserRouter>
     

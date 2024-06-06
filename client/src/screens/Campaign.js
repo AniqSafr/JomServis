@@ -1,5 +1,4 @@
 import React from 'react';
-import "./home.css"
 import Navbar from '../components/HomePage/Navbar';
 import Card from '../components/Campaign/Card';
 

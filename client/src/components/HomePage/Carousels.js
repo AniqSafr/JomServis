@@ -6,6 +6,11 @@ import Banner4 from './assets/images/Banner4.jpg'
 import Banner5 from './assets/images/Banner5.jpeg'
 import Banner3 from './assets/images/Banner3.jpg'
 
+import Test from './assets/images/unnamed4.jpg'
+import Test1 from './assets/images/unnamed6.jpg'
+import Test2 from './assets/images/unnamed7.jpg'
+
+
 
 /* Backend nanti usya sini*/
 function Carousels() {
@@ -19,7 +24,7 @@ function Carousels() {
             </Carousel.Item>
             <Carousel.Item>
                 <Link to="/campaign">
-                    <img className="d-block w-100" src={Banner5} alt="Second Slide" />
+                    <img className="d-block w-100 " src={Banner5} alt="Second Slide" />
                 </Link>
             </Carousel.Item>
             <Carousel.Item>

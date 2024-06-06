@@ -1,5 +1,4 @@
 import React from 'react';
-import "./home.css"
 import Navbar from '../components/HomePage/Navbar';
 import Carousels from '../components/HomePage/Carousels';
 import Section1 from '../components/HomePage/Section1';
@@ -10,7 +9,7 @@ function Home() {
     return (
         <div className='Home'>
            <Navbar/>
-           <div className='section-crousels'> 
+           <div className='pb-3'> 
            <Carousels/>
            </div>
            <div className='section-1'>

@@ -9,6 +9,12 @@ function ServiceType() {
     const navigate = useNavigate();
 
     const bookNow = (serviceType) => {
+        if(serviceType === 'in-site service') {
+            navigate('/in-site-service-location')
+        }
+        else{
+            navigate('/house-call-locationn')
+        }
     }
     return (
 

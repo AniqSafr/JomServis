@@ -7,7 +7,6 @@ import Test from "./components/Campaign/Card"
 import Booking1 from './screens/Booking.js';
 import Profile from "./screens/Profile.js"
 import BookingServiceLocation from './screens/BookingServiceLocation.js';
-import Testing from "./components/Profile/Dashboard.js"
 
 import {
   BrowserRouter,

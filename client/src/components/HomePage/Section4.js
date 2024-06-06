@@ -3,7 +3,7 @@ import './Section4.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import { NavLink } from 'react-router-dom';
 function Section4() {
     return (
         <div className='body-4'>
@@ -17,10 +17,14 @@ function Section4() {
                     <Col className='d-flex justify-content-center align-items-center'>
                         <Row>
                             <Col>
-                                <button class="btn btn-outline-dark " type="submit">Book Now!!</button>
+                                <NavLink to="/booking">
+                                    <button className="btn btn-outline-dark" type="button">Book Now!!</button>
+                                </NavLink>
                             </Col>
                             <Col>
-                                <button class="btn btn-outline-dark" type="submit">Any Inquiries</button>
+                                <NavLink to="/booking">
+                                    <button class="btn btn-outline-dark" type="submit">Any Inquiries</button>
+                                </NavLink>
                             </Col>
                         </Row>
 

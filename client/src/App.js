@@ -6,6 +6,9 @@ import UserDetails from "./components/userDetails";
 import Test from "./components/Campaign/Card"
 import Booking1 from './screens/Booking.js';
 import Profile from "./screens/Profile.js"
+import BookingServiceLocation from './screens/BookingServiceLocation.js';
+import Testing from "./components/Profile/Dashboard.js"
+
 import {
   BrowserRouter,
   Routes,
@@ -33,6 +36,7 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/profile" element={<Profile />} />
           <Route path ="/booking" element ={<Booking1/>}/>
+          <Route path="/in-site-service-location" element={<BookingServiceLocation/>}/>
       </Routes>
     </BrowserRouter>
     

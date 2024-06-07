@@ -4,6 +4,7 @@ import Carousels from '../components/HomePage/Carousels';
 import Section1 from '../components/HomePage/Section1';
 import Section3 from '../components/HomePage/Section3';
 import Section4 from '../components/HomePage/Section4';
+import Footer from '../components/footer';
 
 function Home() {
     return (
@@ -21,6 +22,7 @@ function Home() {
            <div className='section-4'>
             <Section4/>
            </div>
+           <Footer/>
         </div>
     );
 }

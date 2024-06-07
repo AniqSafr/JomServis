@@ -20,8 +20,8 @@ import BookingServiceRepairOption from './screens/BookingServiceRepairOption.js'
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
   return (
-
-    <BrowserRouter>
+    <>
+<BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route
@@ -40,6 +40,12 @@ function App() {
           <Route path="/service-options" element={<BookingServiceRepairOption/>}/>
       </Routes>
     </BrowserRouter>
+    
+    
+    
+    </>
+
+    
     
 
   );

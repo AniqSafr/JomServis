@@ -49,7 +49,7 @@ function UploadImages() {
         : allImage.map((data) => {
             return (
               <img
-                src={require(`../components/HomePage/assets/images/${data.image}`)}
+                src={require(`./components/HomePage/assets/images/${data.image}`)}
                 height={100}
                 width={100}
               />

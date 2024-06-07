@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Dashboard.css'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -9,7 +8,6 @@ import PrflImg from "../HomePage/assets/images/profile-img.png";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-
 
 function Dashboard() {
     const [newCar, setNewCar] = useState(false);
@@ -22,6 +20,42 @@ function Dashboard() {
     const editProfileClose = () => setShow(false);
     const editProfileShow = () => setShow(true);
 
+
+    //user profile
+    const [currentUser, setCurrentUser] = useState(null);
+    const [expanded, setExpanded] = useState(false);
+
+    const handleToggle = () => {
+        setExpanded(!expanded);
+    }
+
+    useEffect(() => {
+        const fetchCurrentUser = async () => {
+            try {
+                const token = localStorage.getItem("token");
+                const response = await fetch("http://localhost:5000/currentUser", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+                if (data.status === "ok") {
+                    setCurrentUser(data.data);
+                }
+            } catch (error) {
+                console.error("Error fetching current user:", error);
+            }
+        };
+
+        fetchCurrentUser();
+    }, []);
+
+    //handle logout
+    const logOut = () => {
+        window.localStorage.clear();
+        window.location.href = "./sign-in";
+      };
 
     return (
         <>
@@ -39,7 +73,12 @@ function Dashboard() {
                                         </MDBBtn>
                                     </div>
                                     <div className="ms-3" style={{ marginTop: '130px' }}>
-                                        <MDBTypography tag="h5">Aniq</MDBTypography>
+                                        <MDBTypography tag="h5">
+                                            <div>
+                                                {currentUser ? currentUser.fname : "Loading..."}
+                                                {currentUser ? currentUser.lname : "Loading..."}
+                                            </div>
+                                        </MDBTypography>
                                         <MDBCardText>Malaysia</MDBCardText>
                                     </div>
                                 </div>
@@ -68,10 +107,10 @@ function Dashboard() {
                                                 variant="dark"
                                                 title="Setting"
                                             >
-                                                <Dropdown.Item onClick={editProfileShow}>Edit Profie</Dropdown.Item>
+                                                <Dropdown.Item onClick={editProfileShow}>Edit Profile</Dropdown.Item>
                                                 <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
                                                 <Dropdown.Divider />
-                                                <Dropdown.Item eventKey="4">Log Out</Dropdown.Item>
+                                                <Dropdown.Item onClick={logOut}>Log Out</Dropdown.Item>
                                             </DropdownButton>
                                         </div>
                                     </div>
@@ -89,7 +128,6 @@ function Dashboard() {
                     </MDBRow>
                 </MDBContainer>
             </div>
-
 
             <Modal show={newCar} onHide={newCarClose}>
                 <Modal.Header closeButton>
@@ -177,8 +215,6 @@ function Dashboard() {
                 </Modal.Footer>
             </Modal>
         </>
-
-
     );
 }
 

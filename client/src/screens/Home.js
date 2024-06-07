@@ -10,7 +10,7 @@ function Home() {
   return (
     <div className="Home">
       <Navbar />
-      <div className="section-crousels">
+      <div className="pb-3">
         <Carousels />
       </div>
       <div className="section-1">

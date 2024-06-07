@@ -14,13 +14,14 @@ import {
   Route,
 } from "react-router-dom";
 import Campaign from './screens/Campaign';
+import MyNavbar from './components/HomePage/Navbar.js';
 
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
   return (
-
-    <BrowserRouter>
+    <>
+<BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route
@@ -38,6 +39,12 @@ function App() {
           <Route path="/in-site-service-location" element={<BookingServiceLocation/>}/>
       </Routes>
     </BrowserRouter>
+    
+    
+    
+    </>
+
+    
     
 
   );

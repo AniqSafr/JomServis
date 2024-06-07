@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+.service-options {
+    width: 350px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 50px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 0 5px;
+    outline: none;
+    color: #000;
+}
+
+.tab.active {
+    background-color: #000;
+    color: #fff;
+}
+
+.service-options h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+.service-options p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+.service-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.service-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+}
+
+.service-button.selected {
+    background-color: grey;
+    color: black;
+}
+
+.remarks {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.remarks label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.remarks textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    background-color: #f9f9f9;
+    outline: none;
+}
+
+.continue-button {
+    margin-top: 20px;
+    padding: 12px 0;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}

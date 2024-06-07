@@ -14,6 +14,7 @@ import {
   Route,
 } from "react-router-dom";
 import Campaign from './screens/Campaign';
+import BookingServiceRepairOption from './screens/BookingServiceRepairOption.js';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path ="/booking" element ={<Booking1/>}/>
           <Route path="/in-site-service-location" element={<BookingServiceLocation/>}/>
+          <Route path="/service-options" element={<BookingServiceRepairOption/>}/>
       </Routes>
     </BrowserRouter>
     

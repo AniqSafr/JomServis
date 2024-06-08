@@ -1,0 +1,146 @@
+.book-appointment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.appointment-section {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-type, .car-details, .date-time {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.service-type {
+    margin-right: 20px;
+}
+
+.service-type h3, .car-details h3, .date-time h3 {
+    display: flex;
+    align-items: center;
+}
+
+.check-icon {
+    color: green;
+    margin-left: 10px;
+}
+
+.service-details {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.service-info {
+    flex: 1;
+}
+
+.service-info h4 {
+    margin: 0;
+}
+
+.service-info hr {
+    margin: 5px 0;
+}
+
+.service-info ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.service-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.car-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.car-details input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ccc; /* Adjusted to match the provided image */
+}
+
+.date-time {
+    margin-left: 20px;
+}
+
+.date-time select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ccc; /* Adjusted to match the provided image */
+}
+
+.time-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.time-buttons button {
+    flex: 1 1 calc(50% - 10px);
+    padding: 10px;
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+}
+
+.time-buttons button.selected {
+    background-color: #000;
+    color: #fff;
+}
+
+.continue-button1 {
+    width: 80%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continue-button1:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.check-icon{
+    color: green;
+}

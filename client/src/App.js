@@ -7,13 +7,9 @@ import Test from "./components/Campaign/Card"
 import Booking1 from './screens/Booking.js';
 import Profile from "./screens/Profile.js"
 import BookingServiceLocation from './screens/BookingServiceLocation.js';
-<<<<<<< HEAD
-import Testing from "./components/Profile/Dashboard.js"
 import Inquiry from './components/Inquiry/Inquiry.js';
 import Feedback from './components/Feedback/Feedback.js';
-=======
 import MapView from "./screens/MapView.js"
->>>>>>> main
 
 import {
   BrowserRouter,

@@ -7,6 +7,9 @@ import Test from "./components/Campaign/Card"
 import Booking1 from './screens/Booking.js';
 import BookingServiceLocation from './screens/BookingServiceLocation.js';
 import Testing from "./components/Profile/Dashboard.js"
+import Inquiry from './components/Inquiry/Inquiry.js';
+import Feedback from './components/Feedback/Feedback.js';
+
 import {
   BrowserRouter,
   Routes,
@@ -34,6 +37,8 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/testing" element={<Testing />} />
           <Route path ="/booking" element ={<Booking1/>}/>
+          <Route path = "/inquiries" element ={<Inquiry/>}/>
+          <Route path="/feedback" element ={<Feedback/>}/>
           <Route path="/in-site-service-location" element={<BookingServiceLocation/>}/>
       </Routes>
     </BrowserRouter>

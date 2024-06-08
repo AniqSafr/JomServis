@@ -13,7 +13,7 @@ function ServiceType() {
             navigate('/in-site-service-location')
         }
         else{
-            navigate('/house-call-locationn')
+            navigate('/house-call-location')
         }
     }
     return (

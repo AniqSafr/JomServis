@@ -7,7 +7,13 @@ import Test from "./components/Campaign/Card"
 import Booking1 from './screens/Booking.js';
 import Profile from "./screens/Profile.js"
 import BookingServiceLocation from './screens/BookingServiceLocation.js';
+<<<<<<< HEAD
+import Testing from "./components/Profile/Dashboard.js"
+import Inquiry from './components/Inquiry/Inquiry.js';
+import Feedback from './components/Feedback/Feedback.js';
+=======
 import MapView from "./screens/MapView.js"
+>>>>>>> main
 
 import {
   BrowserRouter,
@@ -37,6 +43,8 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/profile" element={<Profile />} />
           <Route path ="/booking" element ={<Booking1/>}/>
+          <Route path = "/inquiries" element ={<Inquiry/>}/>
+          <Route path="/feedback" element ={<Feedback/>}/>
           <Route path="/in-site-service-location" element={<BookingServiceLocation/>}/>
           <Route path="/service-options" element={<BookingServiceRepairOption/>}/>
           <Route path="/house-call-location" element={<MapView />} />

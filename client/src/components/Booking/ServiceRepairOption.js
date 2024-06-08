@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './ServiceRepairOption.css';
-import Navbar from '../HomePage/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 const ServiceRepairOption = () => {

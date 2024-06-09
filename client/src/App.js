@@ -19,6 +19,7 @@ import {
 import Campaign from './screens/Campaign';
 import BookingServiceRepairOption from './screens/BookingServiceRepairOption.js';
 import BookingServiceAppointment from "./screens/BookingServiceAppointment.js";
+import BookingServiceSummary from "./screens/BookingServiceSummary.js";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/service-options" element={<BookingServiceRepairOption/>}/>
           <Route path="/house-call-location" element={<MapView />} />
           <Route path="/book-appointment" element={<BookingServiceAppointment/>}/>
+          <Route path="/service-summary" element={<BookingServiceSummary />} />
       </Routes>
     </BrowserRouter>
     

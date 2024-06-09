@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './BookAppointment.css';
 import DropdownCalendar from './DropdownCalendar';
 import Calendar from 'react-calendar';
@@ -17,9 +17,6 @@ import image11 from './assets/exhaust-repair.png';
 import image12 from './assets/suspension-repair.png';
 import image13 from './assets/others-repair.png';
 import image14 from './assets/others.png';
-
-
-
 
 const serviceDetails = {
     'General Service': {
@@ -77,13 +74,14 @@ const serviceDetails = {
     'Other Repairs': {
         image: image13,
         descriptions: [],
-    }    
+    }
 };
 
 
 const BookAppointment = () => {
-    
+
     const { state } = useLocation();
+    const navigate = useNavigate();
     const { selectedServices, remarks } = state || {};
     const selectedService = selectedServices?.[0] || 'Service';
     const serviceDetail = { ...serviceDetails[selectedService] };
@@ -110,6 +108,14 @@ const BookAppointment = () => {
     };
 
     const handleContinue = () => {
+        navigate('/service-summary', {
+            state: {
+                selectedService,
+                date,
+                time,
+                carDetails
+            }
+        });
     };
 
     return (

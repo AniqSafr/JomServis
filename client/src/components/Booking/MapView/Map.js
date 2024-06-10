@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react"; // Import React
+import React, { useState, useEffect, useRef } from "react"; // Import React
 import { GoogleMap, MarkerF } from "@react-google-maps/api";
-import UserLocation from "./UserLocation";
-
 
 const Map = (props) => {
   const [userLocation, setUserLocation] = useState(null);
+  const mapRef = useRef(null);
 
   useEffect(() => {
     getUserLocation();
@@ -23,6 +22,13 @@ const Map = (props) => {
       );
     } else {
       console.error("Geolocation is not supported by this browser.");
+    }
+  };
+
+  const panToUserLocation = () => {
+    if (mapRef.current && userLocation) {
+      mapRef.current.setCenter({ lat: userLocation.latitude, lng: userLocation.longitude });
+      mapRef.current.setZoom(15);
     }
   };
 
@@ -69,16 +75,20 @@ const Map = (props) => {
     isLoaded &&
     userLocation && (
       <>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+          onLoad={(map) => (mapRef.current = map)}
+        >
           <MarkerF position={center} color="blue" />
-          {markers.map((marker) => {
-            return (
-              <div key={marker.name}>
-                <MarkerF position={marker.location} />
-              </div>
-            );
-          })}
+          {markers.map((marker) => (
+            <MarkerF key={marker.name} position={marker.location} />
+          ))}
         </GoogleMap>
+        <button onClick={panToUserLocation} style={{ display: "block", margin: "20px auto" }}>
+          Find My Location
+        </button>
       </>
     )
   );

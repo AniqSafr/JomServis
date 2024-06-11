@@ -16,7 +16,7 @@ function MapView() {
       <Navbar />
       <h1>JomServis AutoMobile Center </h1>
       <Map isLoaded={isLoaded} />
-      <UserLocation />
+      {/* <UserLocation /> */}
     </div>
   );
 }

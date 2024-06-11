@@ -1,0 +1,72 @@
+.dropdown-calendar {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-button {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: black;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 12px;
+   
+}
+.dropdown-button:hover {
+    background-color: #f0f0f0;  /* Same as the original background color */
+    color: black;  /* Same as the original text color */
+    outline: 2px solid rgb(243, 70, 2);
+}
+
+.dropdown-button:focus {
+    outline: none;
+}
+
+.calendar-popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin-top: 5px;
+    width: 100%;
+}
+
+.react-calendar {
+    width: 100%;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.react-calendar__tile {
+    background: white;
+    color: black;
+}
+
+.react-calendar__tile--active {
+    background: #006edc;
+    color: white;
+}
+
+.react-calendar__tile--hover {
+    background: #e6e6e6;
+}
+
+.react-calendar__tile--now {
+    background: #f0f0f0;
+    font-weight: bold;
+}
+
+.react-calendar__navigation {
+    color: black;
+}
+
+.react-calendar__navigation button {
+    color: black;
+}

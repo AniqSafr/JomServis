@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './ServiceRepairOption.css';
-import Navbar from '../HomePage/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 const ServiceRepairOption = () => {
@@ -8,7 +7,7 @@ const ServiceRepairOption = () => {
     const [selectedServices, setSelectedServices] = useState([]);
     const [remarks, setRemarks] = useState('');
 
-    const services = ["General Service", "Aircon system", "Tyre Service", "20-point Inspection", "Battery", "Brake System", "Others"];
+    const services = ["General Service", "Aircond system", "Tyre Service", "20-point Inspection", "Battery", "Brake System", "Others"];
     const repairs = ["Engine Repair", "Transmission Repair", "Brake Repair", "Electrical Repair", "Exhaust Repair", "Suspension Repair", "Other Repairs"];
 
     const handleTabChange = (tab) => {

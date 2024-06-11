@@ -1,10 +1,12 @@
 import React from "react";
+
 import Navbar from "../components/HomePage/Navbar";
 import Carousels from "../components/HomePage/Carousels";
 import Section1 from "../components/HomePage/Section1";
 import Section3 from "../components/HomePage/Section3";
 import Section4 from "../components/HomePage/Section4";
-import Footer from '../components/footer';
+import Footer from "../components/footer";
+import Section2 from "../components/HomePage/Section2";
 
 function Home() {
   return (
@@ -21,6 +23,9 @@ function Home() {
       </div>
       <div className="section-4">
         <Section4 />
+      </div>
+      <div className="section-2">
+        <Section2 />
       </div>
       <Footer/>
     </div>

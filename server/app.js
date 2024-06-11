@@ -28,9 +28,11 @@ mongoose
 
 require("./userDetails");
 require("./imageDetails");
+require("./inquiries");
 
 const User = mongoose.model("UserInfo");
 const Images = mongoose.model("ImageDetails");
+const Inquiry = mongoose.model("Inquiries");
 
 app.post("/register", async (req, res) => {
   const { fname, lname, email, password, userType } = req.body;
@@ -291,6 +293,7 @@ app.get("/currentUser", getCurrentUser, async (req, res) => {
   }
 });
 
+//upload image
 const multer = require("multer");
 
 const storage = multer.diskStorage({
@@ -326,5 +329,23 @@ app.get("/get-image", async (req, res) => {
   } catch (error) {
     console.error("Error fetching images from database:", error);
     res.status(500).json({ status: "error", message: error.message });
+  }
+});
+
+app.post("/inquiries", async (req, res) => {
+  const { name, phoneNumber, email, carMaker, issues, description } = req.body;
+
+  try {
+    await Inquiry.create({
+      name,
+      phoneNumber,
+      email,
+      carMaker,
+      issues,
+      description,
+    });
+    res.send({ status: "ok" });
+  } catch (error) {
+    res.send({ status: "error", message: error.message });
   }
 });

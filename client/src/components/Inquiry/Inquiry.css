@@ -1,190 +1,186 @@
 /* Apply Flexbox to the main container */
 .Inquiry {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  /* Navbar should be at the top */
-  .Navbar {
-    flex: 0 1 auto;
-  }
-  
-  /* Main content sections should expand to fill the available space */
-  .FormSection,
-  .ContactSection,
-  .SocialSection {
-    flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar should be at the top */
+.Navbar {
+  flex: 0 1 auto;
+}
+
+/* Main content sections should expand to fill the available space */
+.FormSection,
+.ContactSection,
+.SocialSection {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 
 .inquiry-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 20px;
-    width: 70%; /* Adjust the max-width as per your layout */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 30px; /* Add padding to the container */
-    border: 0px solid #ccc; /* Add a border for visual separation */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
-    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-    }
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 20px;
+  width: 70%; /* Adjust the max-width as per your layout */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 30px; /* Add padding to the container */
+  border: 0px solid #ccc; /* Add a border for visual separation */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+  background-color: rgba(255, 255, 255, 0.5); /* Make the background transparent */
+}
 
-  .contact-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 90px;
-    right: 23%;
-    width: 25%; /* Adjust the max-width as per your layout */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 30px; /* Add padding to the container */
-    border: 1px solid #ccc; /* Add a border for visual separation */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
-    box-sizing: border-box;
-    height: 240px;
-    background-color: rgb(255, 178, 114);
-  }
-  
-  .social-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: -150px;
-    left: 15%;
-    width: 40%; /* Adjust the max-width as per your layout */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 30px; /* Add padding to the container */
-    border: 1px solid #ccc; /* Add a border for visual separation */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
-    box-sizing: border-box;
-    height: 240px;
-    background-color: rgb(255, 115, 0);
-    color: white;
-  }
-  
-  /* Additional styling for input fields */
-  .form-group input {
-    width: 34%;
-    margin-bottom: 20px;
-    margin-left: 30px;
-    padding: 10px;
-    border: 2px solid #000000;
-    border-radius: 5px;
-  }
-  
-  /* Styling for the submit button */
-  .inquiry-container button {
-    transition-duration: 0.4s;
-    width: 100%;
-    padding: 10px;
-    border: 4px solid darkorange;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    background: transparent;
-  }
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 90px;
+  right: 23%;
+  width: 25%; /* Adjust the max-width as per your layout */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 30px; /* Add padding to the container */
+  border: 1px solid #ccc; /* Add a border for visual separation */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+  box-sizing: border-box;
+  height: 240px;
+}
 
-  .contact-container button, .feedback-container button {
-    transition-duration: 0.4s;
-    width: 100%;
-    padding: 10px;
-    border: 4px solid darkorange;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-    bottom: 20px;
-    right: 0;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    background: transparent;
-  }
-  
- .inquiry-container button:hover, .contact-container button:hover, .feedback-container button:hover {
-    background-color: darkorange; /* Darker shade of the button color on hover */
-    color: white;
-  }
+.social-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -150px;
+  left: 15%;
+  width: 40%; /* Adjust the max-width as per your layout */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 30px; /* Add padding to the container */
+  border: 1px solid #ccc; /* Add a border for visual separation */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+  box-sizing: border-box;
+  height: 240px;
+  color: black;
+}
+
+/* Additional styling for input fields */
+.form-group input {
+  width: 34%;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  padding: 10px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
+
+/* Styling for the submit button */
+.inquiry-container button {
+  transition-duration: 0.4s;
+  width: 100%;
+  padding: 10px;
+  border: 4px solid darkorange;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background-color: darkorange;
+}
+
+.contact-container button {
+  transition-duration: 0.4s;
+  width: 100%;
+  padding: 10px;
+  border: 4px solid darkorange;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  bottom: 20px;
+  right: 0;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  background: transparent;
+}
+
+.inquiry-container button:hover, .contact-container button:hover, .feedback-container button:hover {
+  background-color: darkorange; /* Darker shade of the button color on hover */
+  color: white;
+}
 
 .form-desc {
-    float: right;
-    width: 52%;
-    margin-right: 30px;
+  float: right;
+  width: 52%;
+  margin-right: 30px;
 }
 
 .form-control {
-    position: relative;
-    top: 0;
-    width: 100%;
-    border: 2px solid #000000;
-    border-radius: 5px;
-  }
+  position: relative;
+  top: 0;
+  width: 100%;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
 
-  .tnc {
-    font-size: 14px;
-  }
+.tnc {
+  font-size: 14px;
+}
 
 .input-checkbox {
-    margin-left: 30px;
-    margin-bottom: 20px;
-    display: inline-block;
-    margin-right: 0.5rem;
-    min-height: 1rem;
-    min-width: 1rem; 
+  margin-left: 30px;
+  margin-bottom: 20px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  min-height: 1rem;
+  min-width: 1rem; 
 }
 
 .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 17%;
-  }
-  
-  .social-icons a {
-    color: inherit;
-    text-decoration: none;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 17%;
+}
 
-  .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .popup-content {
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .popup-content p {
-    margin: 0 0 30px;
-  }
-  
-  .popup-content button {
-    padding: 5px 10px;
-    cursor: pointer;
-    border: 1px solid black;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: lighter;
-    background-color: orangered;
-  }
-  
+.social-icons a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.popup-content {
+  text-align: center;
+  font-weight: bold;
+}
+
+.popup-content p {
+  margin: 0 0 30px;
+}
+
+.popup-content button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: lighter;
+  background-color: orangered;
+}

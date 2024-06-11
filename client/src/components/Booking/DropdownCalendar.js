@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './DropdownCalendar.css';
-import { format } from 'date-fns';
 
 const DropdownCalendar = ({ value, onChange }) => {
     const [isOpen, setIsOpen] = useState(false);

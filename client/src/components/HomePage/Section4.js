@@ -36,7 +36,7 @@ function Section4() {
                                 <button className="btn btn-outline-dark" onClick={() => handleNavClick('/booking')}>Book Now!!</button>
                             </Col>
                             <Col>
-                                <NavLink to="/">
+                                <NavLink to="/inquiries">
                                     <button class="btn btn-outline-dark" type="submit">Any Inquiries</button>
                                 </NavLink>
                             </Col>

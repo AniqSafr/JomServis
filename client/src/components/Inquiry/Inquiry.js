@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Inquiry.css';
-import Navbar from '../HomePage/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import axios from 'axios';
+import logo from "../HomePage/assets/images/logo-removebg-preview.png";
 
 
 function Inquiry() {
   return (
     <div className="Inquiry">
-      <Navbar />
       <FormSection />
       <ContactSection />
       <SocialSection />
@@ -17,48 +17,105 @@ function Inquiry() {
 }
 
 function FormSection() {
-
-    const [termsAccepted, setTermsAccepted] = useState(false);
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [carMaker, setCarMaker] = useState('');
+  const [issues, setIssues] = useState('');
+  const [description, setDescription] = useState('');
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
     if (!termsAccepted) {
-      alert('Please accept the terms and conditions before submitting.');
+      alert('You must accept the terms and conditions');
       return;
     }
-    // Add your logic to handle form submission here
-    // For example, you can collect form data and send it to a server
 
-    // Show the popup
-    setShowPopup(true);
+    try {
+      const response = await axios.post('http://localhost:5000/inquiries', {
+        name,
+        phoneNumber,
+        email,
+        carMaker,
+        issues,
+        description,
+      });
 
-    // Hide the popup after 3 seconds
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 3000);
+      if (response.data.status === 'ok') {
+        setShowPopup(true);
+        resetFormFields();  // Reset form fields after successful submission
+      } else {
+        alert(response.data.error);
+      }
+    } catch (error) {
+      alert('An error occurred while submitting the form');
+    }
+  };
+
+  const resetFormFields = () => {
+    setName('');
+    setPhoneNumber('');
+    setEmail('');
+    setCarMaker('');
+    setIssues('');
+    setDescription('');
+    setTermsAccepted(false);
   };
 
   return (
-    <section>
+    <section className='background-logo' style={{ backgroundImage: `url(${logo})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
       <div className='inquiry-container'>
         <h1>Let's Get Started</h1>
         <p>Tell us what we can do for you! Fill in the form below and our team will get in touch with you.</p>
-        {/* Form Fields */}
-        <form onSubmit={handleSubmit}>
-          <div className="form-desc">
-            <textarea className="form-control" placeholder="Issue Description" rows="12"></textarea>
+        <form onSubmit={handleSubmit} >
+          <div className="form-desc" >
+            <textarea
+              className="form-control"
+              placeholder="Issue Description"
+              rows="12"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
           </div>
           <div className="form-group">
-            <input type="text" placeholder="Name" />
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
           <div className="form-group">
-            <input type="text" placeholder="Phone number" />
-            <input type="text" placeholder="Email" />
+            <input
+              type="text"
+              placeholder="Phone number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className="form-group">
-            <input type="text" placeholder="Car Maker" />
-            <input type="text" list="issue" placeholder="Select an issue" />
+            <input
+              type="text"
+              placeholder="Car Maker"
+              value={carMaker}
+              onChange={(e) => setCarMaker(e.target.value)}
+            />
+            <input
+              type="text"
+              list="issue"
+              placeholder="Select an issue"
+              value={issues}
+              onChange={(e) => setIssues(e.target.value)}
+            />
             <datalist id="issue">
               <option value="issue1">Issue 1</option>
               <option value="issue2">Issue 2</option>
@@ -67,13 +124,14 @@ function FormSection() {
           </div>
           <div className="tnc">
             <label>
-                <input
+              <input
                 name='box'
                 type='checkbox'
                 className="input-checkbox"
                 checked={termsAccepted}
                 onChange={() => setTermsAccepted(!termsAccepted)}
-                />I have read and agreed to the Terms and Conditions and PDPA Notice.
+              />
+              I have read and agreed to the Terms and Conditions and PDPA Notice.
             </label>
           </div>
           <button type="submit">Submit</button>
@@ -83,10 +141,10 @@ function FormSection() {
             <div className="popup-content">
               <p>Submission Complete!</p>
               <button onClick={() => setShowPopup(false)}>Close</button>
-      </div>
-      </div>
+            </div>
+          </div>
         )}
-        </div>
+      </div>
     </section>
   );
 }
@@ -111,13 +169,13 @@ function SocialSection() {
         <p>Follow our social media for more updates!</p>
         <div className='social-icons'>
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} size="3x" />
+            <FontAwesomeIcon icon={faInstagram} size="3x" className='app-icon' />
           </a>
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faFacebook} size="3x" />
+            <FontAwesomeIcon icon={faFacebook} size="3x" className='app-icon' />
           </a>
           <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faTwitter} size="3x" />
+            <FontAwesomeIcon icon={faTwitter} size="3x" className='app-icon' />
           </a>
         </div>
       </div>

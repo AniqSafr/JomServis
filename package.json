@@ -3,6 +3,7 @@
     "@react-google-maps/api": "^2.19.3",
     "react-bootstrap-icons": "^1.11.4",
     "react-calendar": "^5.0.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "styled-components": "^6.1.11"
   }
 }

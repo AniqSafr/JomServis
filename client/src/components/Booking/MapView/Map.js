@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GoogleMap, MarkerF, InfoWindowF } from "@react-google-maps/api";
 import CustomMarker from "./user2.png";
+import { useNavigate } from "react-router-dom";
 
 const Map = (props) => {
   const [userLocation, setUserLocation] = useState(null);
@@ -105,6 +106,12 @@ const Map = (props) => {
     mapRef.current = map;
   };
 
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    navigate("/service-options");
+  };
+
   return (
     isLoaded &&
     userLocation && (
@@ -143,10 +150,11 @@ const Map = (props) => {
                 <p>Latitude: {selectedMarker.location.lat}</p>
                 <p>Longitude: {selectedMarker.location.lng}</p>
                 <button
-                  onClick={handleInfoWindowClose}
-                  className="custom-close-button"
+                  onClick={handleContinue}
+                  className="continue-button"
+                  disabled={!center}
                 >
-                  Close
+                  Select
                 </button>
               </div>
             </InfoWindowF>

@@ -349,3 +349,40 @@ app.post("/inquiries", async (req, res) => {
     res.send({ status: "error", message: error.message });
   }
 });
+
+//Booking POST request
+const Appointment = require('./models/Appointment');
+const UserCurrent = require('./userDetails');
+
+
+app.post('/book', async (req, res) => {
+  const token = req.headers.authorization && req.headers.authorization.split(" ")[1]; // Assuming token is stored in localStorage
+const headers = {
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
+};
+  const { selectedService, date, time, carDetails, currentUser } = req.body;
+
+  try {
+    // Validate that the user exists
+    const user = await User.findById(currentUser);
+    if (!user) {
+        return res.status(404).send({ status: 'error', message: 'User not found' });
+    }
+
+    // Create a new appointment
+    const appointment = new Appointment({
+        selectedService,
+        date,
+        time,
+        carDetails,
+        currentUser
+    });
+
+    await appointment.save();
+
+    res.send({ status: 'ok', appointment });
+} catch (error) {
+    res.status(500).send({ status: 'error', message: error.message });
+}
+});

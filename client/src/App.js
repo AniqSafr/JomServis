@@ -11,6 +11,7 @@ import Inquiry from './screens/Inquiry.js';
 import Feedback from './components/Feedback/Feedback.js';
 import MapView from "./screens/MapView.js"
 
+
 import {
   BrowserRouter,
   Routes,
@@ -20,12 +21,14 @@ import Campaign from './screens/Campaign';
 import BookingServiceRepairOption from './screens/BookingServiceRepairOption.js';
 import BookingServiceAppointment from "./screens/BookingServiceAppointment.js";
 import BookingServiceSummary from "./screens/BookingServiceSummary.js";
+import { UserProvider } from "./components/UserContext.js";
 
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
   return (
     <>
+    <UserProvider>
 <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -50,6 +53,7 @@ function App() {
           <Route path="/service-summary" element={<BookingServiceSummary />} />
       </Routes>
     </BrowserRouter>
+    </UserProvider>
     
     
     

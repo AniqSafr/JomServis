@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './BookAppointment.css';
+import { UserContext } from '../UserContext';
 import DropdownCalendar from './DropdownCalendar';
+import axios from 'axios';
 import Calendar from 'react-calendar';
 import image1 from './assets/general-service.png';
 import image2 from './assets/aircond-system.png';
@@ -80,6 +82,7 @@ const serviceDetails = {
 
 const BookAppointment = () => {
 
+    const {currentUser} = useContext(UserContext);
     const { state } = useLocation();
     const navigate = useNavigate();
     const { selectedServices, remarks } = state || {};
@@ -107,16 +110,53 @@ const BookAppointment = () => {
         }));
     };
 
-    const handleContinue = () => {
-        navigate('/service-summary', {
-            state: {
+    const handleContinue = async () => {
+        try {
+            const headers = {
+                Authorization: `Bearer ${currentUser.token}`, // Adjust according to your actual context structure
+                'Content-Type': 'application/json',
+            };
+             // Assuming currentUser is an object with _id, fname, and email fields
+        const updatedCurrentUser = {
+            _id: currentUser._id,
+            fname: currentUser.fname,  // Assuming fname is a field in currentUser
+            email: currentUser.email,  // Assuming email is a field in currentUser
+        };
+
+            // Make POST request to backend
+            const response = await axios.post('http://localhost:5000/book', {
                 selectedService,
                 date,
                 time,
-                carDetails
+                carDetails,
+                currentUser: updatedCurrentUser // Assuming currentUser has an _id field
+            }, { headers });
+
+            // Check response status
+            if (response.status === 200) {
+                // Navigate to service summary page upon successful booking
+                navigate('/service-summary', {
+                    state: {
+                        selectedService,
+                        date,
+                        time,
+                        carDetails,
+                        currentUser
+                    }
+                });
+            } else {
+                // Handle other status codes if needed
+                alert('Failed to book appointment. Please try again.');
             }
-        });
+        } catch (error) {
+            console.error('Error booking appointment:', error);
+            alert('An error occurred while submitting the form');
+        }
     };
+    
+    
+
+    
 
     return (
         <div className="book-appointment">

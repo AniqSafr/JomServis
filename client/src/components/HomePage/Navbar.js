@@ -34,23 +34,39 @@ function MyNavbar() {
         const fetchCurrentUser = async () => {
             try {
                 const token = localStorage.getItem("token");
+                if (!token) {
+                    throw new Error("No token found");
+                }
+    
                 const response = await fetch("http://localhost:5000/currentUser", {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
                 });
+    
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+    
                 const data = await response.json();
                 if (data.status === "ok") {
                     setCurrentUser(data.data);
+                } else {
+                    throw new Error(data.message);
                 }
             } catch (error) {
                 console.error("Error fetching current user:", error);
+                // Handle unauthorized or token expiration here
+                // Example: Redirect to login page
+                localStorage.removeItem("token");
+                setIsAuthenticated(false);
+                setCurrentUser(null);
             }
         };
-
+    
         fetchCurrentUser();
-    }, []);
+    }, [navigate]);
 
 
     return (

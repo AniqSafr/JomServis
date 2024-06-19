@@ -27,12 +27,12 @@ mongoose
   .catch((e) => console.log(e));
 
 require("./userDetails");
-require("./imageDetails");
 require("./inquiries");
+//require("./imageDetails");
 
 const User = mongoose.model("UserInfo");
-const Images = mongoose.model("ImageDetails");
 const Inquiry = mongoose.model("Inquiries");
+//const Images = mongoose.model("ImageDetails");
 
 app.post("/register", async (req, res) => {
   const { fname, lname, email, password, userType } = req.body;
@@ -293,45 +293,6 @@ app.get("/currentUser", getCurrentUser, async (req, res) => {
   }
 });
 
-//upload image
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const uploadDir = "../client/src/components/HomePage/assets/images";
-    cb(null, uploadDir);
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + '-' + file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
-
-app.post("/upload-image", upload.single("image"), async (req, res) => {
-  console.log(req.body);
-  const imageName = req.file.filename;
-
-  try {
-    await Images.create({ image: imageName });
-    res.json({ status: "ok" });
-  } catch (error) {
-    console.error("Error saving image to database:", error);
-    res.status(500).json({ status: "error", message: error.message });
-  }
-});
-
-app.get("/get-image", async (req, res) => {
-  try {
-    const data = await Images.find({});
-    res.json({ status: "ok", data: data });
-  } catch (error) {
-    console.error("Error fetching images from database:", error);
-    res.status(500).json({ status: "error", message: error.message });
-  }
-});
-
 app.post("/inquiries", async (req, res) => {
   const { name, phoneNumber, email, carMaker, issues, description } = req.body;
 
@@ -352,8 +313,6 @@ app.post("/inquiries", async (req, res) => {
 
 //Booking POST request
 const Appointment = require('./models/Appointment');
-const UserCurrent = require('./userDetails');
-
 
 app.post('/book', async (req, res) => {
   const token = req.headers.authorization && req.headers.authorization.split(" ")[1]; // Assuming token is stored in localStorage
@@ -385,4 +344,84 @@ const headers = {
 } catch (error) {
     res.status(500).send({ status: 'error', message: error.message });
 }
+});
+
+// Route to get current user appointments
+app.get("/getAllAppointments", async (req, res) => {
+  let query = {};
+  const searchData = req.query.search;
+  
+  if (searchData) {
+    query = {
+      "currentUser.email": { $regex: searchData, $options: "i" }
+    };
+  }
+
+  try {
+    const allAppointments = await Appointment.find(query);
+    console.log("Appointments fetched:", allAppointments); // Debugging line
+    res.send({ status: "ok", data: allAppointments });
+  } catch (error) {
+    console.error("Error fetching appointments:", error); // Improved error logging
+    res.status(500).send({ status: "error", message: error.message });
+  }
+});
+
+const Feedback = require('./Feedback');
+
+// Route to handle feedback submission
+app.post("/submitFeedback", getCurrentUser, async (req, res) => {
+  const { bookingId, feedbackText, rating } = req.body;
+  const currentUser = req.currentUser; // User data from decoded JWT
+
+  try {
+    // Validate that the booking exists
+    const booking = await Appointment.findById(bookingId);
+    if (!booking) {
+      return res.status(404).json({ status: "error", message: "Booking not found" });
+    }
+
+    // Create a new feedback entry
+    const feedback = new Feedback({
+      bookingId,
+      feedbackText,
+      rating,
+      user: {
+        _id: currentUser._id,
+        fname: currentUser.fname,
+        email: currentUser.email
+      }
+    });
+
+    await feedback.save();
+
+    res.json({ status: "ok", message: "Feedback submitted successfully" });
+  } catch (error) {
+    console.error("Error submitting feedback:", error);
+    res.status(500).json({ status: "error", message: "Error submitting feedback" });
+  }
+});
+
+// Route to fetch appointments with associated feedback for the current user
+app.get("/getAllAppointmentsWithFeedback", getCurrentUser, async (req, res) => {
+  try {
+      const currentUserEmail = req.currentUser.email;
+      const appointments = await Appointment.find({ "currentUser.email": currentUserEmail });
+
+      // Map through appointments to check if feedback exists
+      const appointmentsWithFeedback = await Promise.all(
+          appointments.map(async (appointment) => {
+              const feedback = await Feedback.findOne({ bookingId: appointment._id });
+              return {
+                  ...appointment.toObject(),
+                  feedback: feedback ? { rating: feedback.rating } : null,
+              };
+          })
+      );
+
+      res.json({ status: "ok", data: appointmentsWithFeedback });
+  } catch (error) {
+      console.error("Error fetching appointments with feedback:", error);
+      res.status(500).json({ status: "error", message: "Error fetching appointments with feedback" });
+  }
 });

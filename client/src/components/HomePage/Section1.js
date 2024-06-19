@@ -21,8 +21,8 @@ function Section1() {
                     </Col>
                     <Col>
                         <Row>
-                            <Col className="d-flex justify-content-center align-items-center">
-                                <a class="service-icon" >
+                        <Col className="d-flex justify-content-center align-items-center">
+                                <a class="repair-icon">
                                     <img src={image1} alt="" />
                                 </a>
                             </Col>

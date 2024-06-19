@@ -5,7 +5,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
 
-    useEffect(() => {
+    useEffect(() => { 
         const fetchCurrentUser = async () => {
             try {
                 const token = localStorage.getItem("token");
@@ -27,8 +27,9 @@ export const UserProvider = ({ children }) => {
         fetchCurrentUser();
     }, []);
 
+    
     return (
-        <UserContext.Provider value={{ currentUser }}>
+        <UserContext.Provider value={{ currentUser  }}>
             {children}
         </UserContext.Provider>
     );

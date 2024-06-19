@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Feedback.css';
 import Navbar from '../HomePage/Navbar';
+import axios from 'axios';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Feedback() {
   return (
@@ -14,31 +16,51 @@ function Feedback() {
 function FeedbackSection() {
   const [feedback, setFeedback] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
-  const [rating, setRating] = useState(0);
-  const [hoverRating, setHoverRating] = useState(0);
+  const [rating, setRating] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const bookingId = new URLSearchParams(location.search).get('bookingId'); // Get bookingId from query params
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
+    setFeedback(option); // Auto-write the selected option in the feedback text area
   };
 
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
   };
 
-  const handleStarClick = (ratingValue) => {
-    setRating(ratingValue);
+  const handleRatingChange = (event) => {
+    setRating(event.target.value);
   };
 
-  const handleStarHover = (ratingValue) => {
-    setHoverRating(ratingValue);
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission logic here
-    console.log('Selected Option:', selectedOption);
-    console.log('Feedback:', feedback);
-    alert('Thank you for your feedback!');
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post('http://localhost:5000/submitFeedback', {
+        bookingId,
+        feedbackText: feedback,
+        rating,
+      }, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      });
+
+      console.log('Response:', response.data); // Log the response
+
+      if (response.data.status === 'ok') {
+        alert('Thank you for your feedback!');
+        navigate('/'); // Redirect after successful submission
+      } else {
+        alert('Error submitting feedback: ' + response.data.message);
+      }
+    } catch (error) {
+      console.error('Error submitting feedback:', error.response ? error.response.data : error.message);
+      alert('Error submitting feedback: ' + (error.response ? error.response.data.message : error.message));
+    }
   };
 
   return (
@@ -47,18 +69,14 @@ function FeedbackSection() {
         <h4>Feel free to drop us your feedback.</h4>
         <div className="form-suggest">
           <label>Rate your experience</label>
-          <div className="star-rating">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star
-                key={star}
-                starId={star}
-                rating={hoverRating || rating}
-                onMouseEnter={() => handleStarHover(star)}
-                onMouseLeave={() => handleStarHover(0)}
-                onClick={() => handleStarClick(star)}
-              />
-            ))}
-          </div>
+          <select value={rating} onChange={handleRatingChange} className="form-control2">
+            <option value="">Select Rating</option>
+            <option value="1">1 - Very Bad</option>
+            <option value="2">2 - Bad</option>
+            <option value="3">3 - Average</option>
+            <option value="4">4 - Good</option>
+            <option value="5">5 - Excellent</option>
+          </select>
         </div>
         <label>What Could Be Better?</label>
         <div className="options-container">
@@ -92,22 +110,5 @@ function FeedbackSection() {
     </section>
   );
 }
-
-const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
-    let styleClass = 'star-rating-blank';
-    if (rating >= starId) {
-      styleClass = 'star-rating-filled';
-    }
-    return (
-      <div
-        className={`star ${styleClass}`}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onClick={onClick}
-      >
-        &#9733;
-      </div>
-    );
-  };
 
 export default Feedback;

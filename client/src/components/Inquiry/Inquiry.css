@@ -83,22 +83,18 @@
   transition-duration: 0.4s;
   width: 100%;
   padding: 10px;
-  border: 4px solid darkorange;
-  color: black;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
-  background-color: darkorange;
+  background-color: rgb(243, 70, 2);
 }
 
 .contact-container button {
   transition-duration: 0.4s;
   width: 100%;
   padding: 10px;
-  border: 4px solid darkorange;
-  color: black;
   border-radius: 5px;
   cursor: pointer;
   bottom: 20px;
@@ -108,6 +104,7 @@
   margin-bottom: 20px;
   margin-right: 20px;
   background: transparent;
+  background-color: rgb(243, 70, 2);
 }
 
 .inquiry-container button:hover, .contact-container button:hover, .feedback-container button:hover {
@@ -182,5 +179,5 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: lighter;
-  background-color: orangered;
+  background-color: rgb(243, 70, 2);
 }

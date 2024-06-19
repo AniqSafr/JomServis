@@ -3,13 +3,14 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/LoginPage/Login";
 import SignUp from "./components/RegisterPage/Register";
 import UserDetails from "./components/userDetails";
-import Test from './components/HomePage/Section2.js';
+import Test from './components/Booking/Payment.js';
 import Booking1 from './screens/Booking.js';
 import Profile from "./screens/Profile.js"
 import BookingServiceLocation from './screens/BookingServiceLocation.js';
 import Inquiry from './screens/Inquiry.js';
-import Feedback from './components/Feedback/Feedback.js';
-import MapView from "./screens/MapView.js"
+import Feedback from './screens/Feedback.js';
+import MapView from "./screens/MapView.js";
+import Rate from './components/Feedback/Feedback.js';
 
 
 import {
@@ -51,6 +52,7 @@ function App() {
           <Route path="/house-call-location" element={<MapView />} />
           <Route path="/book-appointment" element={<BookingServiceAppointment/>}/>
           <Route path="/service-summary" element={<BookingServiceSummary />} />
+          <Route path="/rate" element={<Rate/>} />
       </Routes>
     </BrowserRouter>
     </UserProvider>

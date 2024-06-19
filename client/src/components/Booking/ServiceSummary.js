@@ -36,10 +36,6 @@ const ServiceSummary = () => {
                         <span>Email</span>
                         <span className="summary-value">{currentUser?.email}</span>
                     </div>
-                    <div className="summary-item">
-                        <span>Total Deposit:</span>
-                        <span className="summary-value">RM 20.00</span>
-                    </div>
                 </div>
             </div>
         </div>

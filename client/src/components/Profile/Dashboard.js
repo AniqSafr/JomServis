@@ -68,9 +68,7 @@ function Dashboard() {
                                     <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                                         <MDBCardImage src={PrflImg}
                                             alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
-                                        <MDBBtn outline color="dark" style={{ height: '36px' }}>
-                                            Edit profile
-                                        </MDBBtn>
+
                                     </div>
                                     <div className="ms-3" style={{ marginTop: '130px' }}>
                                         <MDBTypography tag="h5">
@@ -82,13 +80,13 @@ function Dashboard() {
                                         <MDBCardText>Malaysia</MDBCardText>
                                     </div>
                                 </div>
-                                <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
+                                <div className="p-4 text-black" >
                                     <div className="d-flex justify-content-end text-center py-1">
                                         <div>
                                             <DropdownButton
                                                 as={ButtonGroup}
-                                                id="dropdown-variant-secondary"
-                                                className="custom-secondary-dropdown"
+                                                id="dropdown"
+                                                className="custom-dropdown"
                                                 variant="dark"
                                                 title="Available Car"
                                             >
@@ -96,19 +94,18 @@ function Dashboard() {
                                                 <Dropdown.Item disabled>Jaguar</Dropdown.Item>
                                                 <Dropdown.Item disabled> BMW </Dropdown.Item>
                                                 <Dropdown.Divider />
-                                                <Dropdown.Item active onClick={newCarShow}>Add car</Dropdown.Item>
+                                                <Dropdown.Item active onClick={newCarShow} className='btn-secondary'>Add car</Dropdown.Item>
                                             </DropdownButton>
                                         </div>
                                         <div className="px-3">
                                             <DropdownButton
                                                 as={ButtonGroup}
-                                                id="dropdown-variant-secondary"
-                                                className="custom-secondary-dropdown"
+                                                id="dropdown"
+                                                className="custom-dropdown"
                                                 variant="dark"
                                                 title="Setting"
                                             >
-                                                <Dropdown.Item onClick={editProfileShow}>Edit Profile</Dropdown.Item>
-                                                <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                                                <Dropdown.Item onClick={editProfileShow} >Edit Profile</Dropdown.Item>
                                                 <Dropdown.Divider />
                                                 <Dropdown.Item onClick={logOut}>Log Out</Dropdown.Item>
                                             </DropdownButton>
@@ -116,14 +113,6 @@ function Dashboard() {
                                     </div>
                                 </div>
                             </MDBCard>
-                            <MDBCardBody className="text-black p-4">
-                                <div className="mb-5">
-                                    <h1 className="lead fw-normal mb-1">History</h1>
-                                    <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                                        <MDBCardText className="font-italic mb-1">Booking ID</MDBCardText>
-                                    </div>
-                                </div>
-                            </MDBCardBody>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>

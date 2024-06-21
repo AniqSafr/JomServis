@@ -15,7 +15,10 @@ function Payment() {
       <div className='timer-container'>
         <p>Please Complete Your Payment</p>
         </div>
+        <div>
         <QRCode/>
+        </div>
+        
     </div>
   );
 }
@@ -59,13 +62,13 @@ function QRCode() {
               <img src={qr}alt="QR Code" />
             </div>
             <div className='receipt-button'>
-            <button className="add-receipt-button" onClick={handleAddReceiptClick}>Add a receipt</button>
+            <button className="btn-dark" onClick={handleAddReceiptClick}>Add a receipt</button>
             {isPopupVisible && (
         <div className="popup-overlay">
           <div className="popup">
             <h2>Payment Complete</h2>
             <p>Your payment has been successfully processed.</p>
-            <button className="close-popup-button" onClick={handleClosePopup}>Done</button>
+            <button className="btn-dark" onClick={handleClosePopup}>Done</button>
           </div>
         </div>
       )}

@@ -9,7 +9,7 @@ function BookingServiceSummary(){
             <div className="ServiceSummary">
                 <ServiceSummary />
             </div>
-            <div className="ServiceSummary">
+            <div className="ServiceSummary pb-4">
                 <Payment />
             </div>
         </div>

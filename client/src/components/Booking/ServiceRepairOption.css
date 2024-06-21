@@ -27,7 +27,7 @@
 }
 
 .tab.active {
-    background-color: #000;
+    background-color: rgb(243, 70, 2);
     color: #fff;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .service-button.selected {
-    background-color: grey;
+    background-color: darkorange;
     color: black;
 }
 

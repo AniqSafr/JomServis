@@ -92,6 +92,11 @@
     background-color: #ccc; /* Adjusted to match the provided image */
 }
 
+.car-details:focus{
+    border-color: rgb(243, 70, 2) !important;
+}
+
+
 .date-time {
     margin-left: 20px;
 }
@@ -122,14 +127,14 @@
 }
 
 .time-buttons button.selected {
-    background-color: #000;
+    background-color: darkorange;
     color: #fff;
 }
 
 .continue-button1 {
     width: 80%;
     padding: 10px;
-    background-color: #000;
+    background-color: rgb(243, 70, 2);
     color: #fff;
     border: none;
     border-radius: 5px;

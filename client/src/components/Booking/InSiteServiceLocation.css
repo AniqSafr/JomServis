@@ -35,18 +35,6 @@
     font-size: 16px;
 }
 
-.continue-button {
-    margin-top: 30px;
-    padding: 12px 0;
-    border: none;
-    background-color: #000;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    width: 100%;
-    cursor: pointer;
-}
-
 .continue-button:disabled {
     background-color: #aaa;
     cursor: not-allowed;

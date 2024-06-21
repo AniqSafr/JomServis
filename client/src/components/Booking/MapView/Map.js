@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { GoogleMap, MarkerF, InfoWindowF } from "@react-google-maps/api";
 import CustomMarker from "./user2.png";
 import { useNavigate } from "react-router-dom";
+import './Map.css';
 
 const Map = (props) => {
   const [userLocation, setUserLocation] = useState(null);

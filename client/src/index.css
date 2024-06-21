@@ -52,7 +52,7 @@ html,
   transition: all 0.3s;
 }
 
-.auth-wrapper .form-control:focus {
+.auth-wrapper .form-control:focus .form-group:focus{
   border-color: rgb(243, 70, 2);
   box-shadow: none;
 }
@@ -88,8 +88,40 @@ td {
 }
 
 .btn-secondary {
-  border-radius: 70px;
+  border-radius: 70px !important;
   width: 150px;
   background-color: rgb(243, 70, 2) !important;
   color: black; /* Set font color to black */
+  border-color: rgb(243, 70, 2) !important;
+}
+
+.btn-secondary:hover {
+  border-radius: 70px;
+  width: 150px;
+  background-color: darkorange !important;
+  color: black; /* Set font color to black */
+  border-color: darkorange;
+}
+
+.continue-button{
+  border: none;
+  background-color: rgb(243, 70, 2) !important;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.continue-button:hover{
+  border: none;
+  background-color: darkorange !important;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btn-dark{
+  background-color: rgb(243, 70, 2) !important;
+}
+
+.btn-dark:hover{
+  background-color: darkorange !important;
+  color: #fff;
 }

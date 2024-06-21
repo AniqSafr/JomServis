@@ -83,6 +83,7 @@ function FormSection() {
           <div className="form-group">
             <input
               type="text"
+              className="form-control"
               placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -91,12 +92,14 @@ function FormSection() {
           <div className="form-group">
             <input
               type="text"
+              className="form-control"
               placeholder="Phone number"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <input
               type="text"
+              className="form-control"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -105,29 +108,26 @@ function FormSection() {
           <div className="form-group">
             <input
               type="text"
+              className="form-control"
               placeholder="Car Maker"
               value={carMaker}
               onChange={(e) => setCarMaker(e.target.value)}
             />
             <input
               type="text"
+              className="form-control"
               list="issue"
-              placeholder="Select an issue"
+              placeholder="Write an issue"
               value={issues}
               onChange={(e) => setIssues(e.target.value)}
             />
-            <datalist id="issue">
-              <option value="issue1">Issue 1</option>
-              <option value="issue2">Issue 2</option>
-              <option value="issue3">Issue 3</option>
-            </datalist>
           </div>
           <div className="tnc">
             <label>
               <input
                 name='box'
+                className="form-control"
                 type='checkbox'
-                className="input-checkbox"
                 checked={termsAccepted}
                 onChange={() => setTermsAccepted(!termsAccepted)}
               />

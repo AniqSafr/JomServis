@@ -103,7 +103,7 @@ function FeedbackSection() {
             onChange={handleFeedbackChange}
           ></textarea>
         </div>
-        <button type="submit" onClick={handleSubmit}>
+        <button type="submit-button" onClick={handleSubmit}>
           Submit
         </button>
       </div>

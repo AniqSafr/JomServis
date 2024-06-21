@@ -175,10 +175,10 @@ const BookAppointment = () => {
                 </div>
                 <div className="car-details">
                     <h3>Car Details <span className="check-icon">✔️</span></h3>
-                    <input type="text" name="carPlateNo" placeholder="Car Plate No." value={carDetails.carPlateNo} onChange={handleInputChange} />
-                    <input type="text" name="carBrand" placeholder="Car Brand" value={carDetails.carBrand} onChange={handleInputChange} />
-                    <input type="text" name="carModel" placeholder="Car Model" value={carDetails.carModel} onChange={handleInputChange} />
-                    <input type="text" name="carYear" placeholder="Car Year" value={carDetails.carYear} onChange={handleInputChange} />
+                    <input type="text" name="carPlateNo" placeholder="Car Plate No." value={carDetails.carPlateNo} onChange={handleInputChange} className='form-control' />
+                    <input type="text" name="carBrand" placeholder="Car Brand" value={carDetails.carBrand} onChange={handleInputChange} className='form-control'/>
+                    <input type="text" name="carModel" placeholder="Car Model" value={carDetails.carModel} onChange={handleInputChange} className='form-control'/>
+                    <input type="text" name="carYear" placeholder="Car Year" value={carDetails.carYear} onChange={handleInputChange} className='form-control'/>
                 </div>
                 <div className="date-time">
                     <h3>Date & Time</h3>

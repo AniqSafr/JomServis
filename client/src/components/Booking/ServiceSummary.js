@@ -4,7 +4,7 @@ import './ServiceSummary.css';
 
 const ServiceSummary = () => {
     const { state } = useLocation();
-    const { selectedService, date, time, carDetails,currentUser } = state || {};
+    const { selectedService, serviceType, date, time, carDetails,currentUser } = state || {};
 
     return (
         <div className="service-summary">
@@ -15,6 +15,10 @@ const ServiceSummary = () => {
                     <div className="summary-item">
                         <span>Service Type:</span>
                         <span className="summary-value">{selectedService}</span>
+                    </div>
+                    <div className="summary-item">
+                        <span>Service: </span>
+                        <span className="summary-value">{serviceType}</span>
                     </div>
                     <div className="summary-item">
                         <span>Service Appointment:</span>

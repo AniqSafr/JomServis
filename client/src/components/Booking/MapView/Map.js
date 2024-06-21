@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GoogleMap, MarkerF, InfoWindowF } from "@react-google-maps/api";
 import CustomMarker from "./user2.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import './Map.css';
+
 
 const Map = (props) => {
   const [userLocation, setUserLocation] = useState(null);
   const [selectedMarker, setSelectedMarker] = useState(null); // State to track which marker is selected
   const mapRef = useRef(null);
+  const location = useLocation();
+  const serviceType = new URLSearchParams(location.search).get("serviceType");
 
   useEffect(() => {
     getUserLocation();
@@ -109,8 +112,13 @@ const Map = (props) => {
 
   const navigate = useNavigate();
 
-  const handleContinue = () => {
-    navigate("/service-options");
+  const handleContinue = (selectedMarker) => {
+    navigate("/service-options", {
+      state: {
+        serviceType,
+        selectedServiceCenter: selectedMarker.name,
+      }
+    });
   };
 
   return (
@@ -151,7 +159,7 @@ const Map = (props) => {
                 <p>Latitude: {selectedMarker.location.lat}</p>
                 <p>Longitude: {selectedMarker.location.lng}</p>
                 <button
-                  onClick={handleContinue}
+                  onClick={() => handleContinue(selectedMarker)} // Pass the selected marker to handleContinue
                   className="continue-button"
                   disabled={!center}
                 >

@@ -79,13 +79,11 @@ const serviceDetails = {
     }
 };
 
-
 const BookAppointment = () => {
-
-    const {currentUser} = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
     const { state } = useLocation();
     const navigate = useNavigate();
-    const { selectedServices, remarks } = state || {};
+    const { selectedServices, remarks, serviceType } = state || {};
     const selectedService = selectedServices?.[0] || 'Service';
     const serviceDetail = { ...serviceDetails[selectedService] };
     if (selectedService === 'Others' || selectedService === 'Other Repairs') {
@@ -116,20 +114,20 @@ const BookAppointment = () => {
                 Authorization: `Bearer ${currentUser.token}`, // Adjust according to your actual context structure
                 'Content-Type': 'application/json',
             };
-             // Assuming currentUser is an object with _id, fname, and email fields
-        const updatedCurrentUser = {
-            _id: currentUser._id,
-            fname: currentUser.fname,  // Assuming fname is a field in currentUser
-            email: currentUser.email,  // Assuming email is a field in currentUser
-        };
+            const updatedCurrentUser = {
+                _id: currentUser._id,
+                fname: currentUser.fname,
+                email: currentUser.email,
+            };
 
             // Make POST request to backend
             const response = await axios.post('http://localhost:5000/book', {
                 selectedService,
+                serviceType,
                 date,
                 time,
                 carDetails,
-                currentUser: updatedCurrentUser // Assuming currentUser has an _id field
+                currentUser: updatedCurrentUser
             }, { headers });
 
             // Check response status
@@ -138,6 +136,7 @@ const BookAppointment = () => {
                 navigate('/service-summary', {
                     state: {
                         selectedService,
+                        serviceType,
                         date,
                         time,
                         carDetails,
@@ -145,7 +144,6 @@ const BookAppointment = () => {
                     }
                 });
             } else {
-                // Handle other status codes if needed
                 alert('Failed to book appointment. Please try again.');
             }
         } catch (error) {
@@ -153,10 +151,6 @@ const BookAppointment = () => {
             alert('An error occurred while submitting the form');
         }
     };
-    
-    
-
-    
 
     return (
         <div className="book-appointment">

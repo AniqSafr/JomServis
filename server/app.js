@@ -312,38 +312,46 @@ app.post("/inquiries", async (req, res) => {
 });
 
 //Booking POST request
+const bodyParser = require('body-parser');
+
+
 const Appointment = require('./models/Appointment');
+
+
+app.use(bodyParser.json());
 
 app.post('/book', async (req, res) => {
   const token = req.headers.authorization && req.headers.authorization.split(" ")[1]; // Assuming token is stored in localStorage
-const headers = {
+  const headers = {
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json',
-};
-  const { selectedService, date, time, carDetails, currentUser } = req.body;
+  };
+
+  const { selectedService, serviceType, date, time, carDetails, currentUser } = req.body;
 
   try {
     // Validate that the user exists
-    const user = await User.findById(currentUser);
+    const user = await User.findById(currentUser._id);
     if (!user) {
-        return res.status(404).send({ status: 'error', message: 'User not found' });
+      return res.status(404).send({ status: 'error', message: 'User not found' });
     }
 
     // Create a new appointment
     const appointment = new Appointment({
-        selectedService,
-        date,
-        time,
-        carDetails,
-        currentUser
+      selectedService,
+      serviceType,  // Ensure serviceType is included here
+      date,
+      time,
+      carDetails,
+      currentUser
     });
 
     await appointment.save();
 
     res.send({ status: 'ok', appointment });
-} catch (error) {
+  } catch (error) {
     res.status(500).send({ status: 'error', message: error.message });
-}
+  }
 });
 
 // Route to get current user appointments

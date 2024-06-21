@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import './ServiceRepairOption.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const ServiceRepairOption = () => {
     const [activeTab, setActiveTab] = useState('service');
     const [selectedServices, setSelectedServices] = useState([]);
     const [remarks, setRemarks] = useState('');
-
+    
+    const location = useLocation();
+    const { serviceType, selectedServiceCenter } = location.state || {};
+    
     const services = ["General Service", "Aircond system", "Tyre Service", "20-point Inspection", "Battery", "Brake System", "Others"];
     const repairs = ["Engine Repair", "Transmission Repair", "Brake Repair", "Electrical Repair", "Exhaust Repair", "Suspension Repair", "Other Repairs"];
 
@@ -28,7 +31,11 @@ const ServiceRepairOption = () => {
 
     const navigate = useNavigate();
     const handleContinue = () => {
-        navigate('/book-appointment', { state: { selectedServices, activeTab, remarks } });
+        if (selectedServices.length === 0) {
+            alert('Please select at least one service or repair option.');
+            return;
+        }
+        navigate('/book-appointment', { state: { selectedServices, activeTab, remarks, serviceType } });
     };
 
     return (

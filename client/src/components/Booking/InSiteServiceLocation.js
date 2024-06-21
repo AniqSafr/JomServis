@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import './InSiteServiceLocation.css';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const InSiteServiceLocation = () => {
     const [state, setState] = useState('');
     const [center, setCenter] = useState('');
+    const location = useLocation();
+    const serviceType = new URLSearchParams(location.search).get("serviceType");
 
     const handleStateChange = (e) => {
         setState(e.target.value);
-    }
+        setCenter(''); // Reset selected center when state changes
+    };
 
     const handleCenterChange = (e) => {
         setCenter(e.target.value);
@@ -17,7 +20,17 @@ const InSiteServiceLocation = () => {
     const navigate = useNavigate();
 
     const handleContinue = () => {
-        navigate('/service-options');
+        if (center) {
+            // Navigate to the next page with serviceType
+            navigate('/service-options', {
+                state: {
+                    serviceType,
+                    selectedServiceCenter: center
+                }
+            });
+        } else {
+            alert('Please select a service center.');
+        }
     };
 
     return (
@@ -34,26 +47,26 @@ const InSiteServiceLocation = () => {
                     <option value="" disabled>Service Center</option>
                     {state === 'selangor' && (
                         <>
-                            <option value="sd_ara_damansara">
-                                Hyundai Ara Damansara(Sime Darby Auto Hyundai)
+                            <option value="sHyundai Ara Damansara (Sime Darby Auto Hyundai)">
+                                Hyundai Ara Damansara (Sime Darby Auto Hyundai)
                             </option>
-                            <option value="sd_shah_alam">
+                            <option value="Sime Darby Auto Import Shah Alam">
                                 Sime Darby Auto Import Shah Alam
                             </option>
-                            <option value="sd_balakong">
+                            <option value="Sime Darby Auto Selection, Balakong">
                                 Sime Darby Auto Selection, Balakong
                             </option>
                         </>
                     )}
                     {state === 'kuala_lumpur' && (
                         <>
-                            <option value="sd_tun_razak">
+                            <option value="Sime Darby Motor Division Sdn. Bhd., Jalan Tun Razak">
                                 Sime Darby Motor Division Sdn. Bhd., Jalan Tun Razak
                             </option>
-                            <option value="sd_bukit_bintang">
+                            <option value="Sime Darby Motor Division, Bukit Bintang">
                                 Sime Darby Motor Division, Bukit Bintang
                             </option>
-                            <option value="sd_trec">
+                            <option value="Sime Darby Auto Selection TREC">
                                 Sime Darby Auto Selection TREC
                             </option>
                         </>

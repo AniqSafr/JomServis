@@ -9,6 +9,7 @@ const carDetailsSchema = new mongoose.Schema({
 
 const appointmentSchema = new mongoose.Schema({
     selectedService: { type: String, required: true },
+    serviceType: { type: String, required: true },  // Added serviceType field
     date: { type: Date, required: true },
     time: { type: String, required: true },
     carDetails: { type: carDetailsSchema, required: true },

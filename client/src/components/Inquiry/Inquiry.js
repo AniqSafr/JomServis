@@ -128,7 +128,6 @@ function FormSection() {
                 name='box'
                 className="form-control"
                 type='checkbox'
-                className="input-checkbox"
                 checked={termsAccepted}
                 onChange={() => setTermsAccepted(!termsAccepted)}
               />

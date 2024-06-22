@@ -47,7 +47,7 @@ const InSiteServiceLocation = () => {
                     <option value="" disabled>Service Center</option>
                     {state === 'selangor' && (
                         <>
-                            <option value="sHyundai Ara Damansara (Sime Darby Auto Hyundai)">
+                            <option value="Hyundai Ara Damansara (Sime Darby Auto Hyundai)">
                                 Hyundai Ara Damansara (Sime Darby Auto Hyundai)
                             </option>
                             <option value="Sime Darby Auto Import Shah Alam">

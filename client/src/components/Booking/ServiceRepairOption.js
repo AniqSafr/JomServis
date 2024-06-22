@@ -35,7 +35,7 @@ const ServiceRepairOption = () => {
             alert('Please select at least one service or repair option.');
             return;
         }
-        navigate('/book-appointment', { state: { selectedServices, activeTab, remarks, serviceType } });
+        navigate('/book-appointment', { state: { selectedServices, activeTab, remarks, serviceType, selectedServiceCenter } });
     };
 
     return (

@@ -83,7 +83,7 @@ const BookAppointment = () => {
     const { currentUser } = useContext(UserContext);
     const { state } = useLocation();
     const navigate = useNavigate();
-    const { selectedServices, remarks, serviceType } = state || {};
+    const { selectedServices, remarks, serviceType,selectedServiceCenter } = state || {};
     const selectedService = selectedServices?.[0] || 'Service';
     const serviceDetail = { ...serviceDetails[selectedService] };
     if (selectedService === 'Others' || selectedService === 'Other Repairs') {
@@ -140,7 +140,8 @@ const BookAppointment = () => {
                         date,
                         time,
                         carDetails,
-                        currentUser
+                        currentUser,
+                        selectedServiceCenter
                     }
                 });
             } else {

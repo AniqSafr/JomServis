@@ -4,7 +4,7 @@ import './ServiceSummary.css';
 
 const ServiceSummary = () => {
     const { state } = useLocation();
-    const { selectedService, serviceType, date, time, carDetails,currentUser } = state || {};
+    const { selectedService, serviceType, date, time, carDetails,currentUser,selectedServiceCenter } = state || {};
 
     return (
         <div className="service-summary">
@@ -25,19 +25,19 @@ const ServiceSummary = () => {
                         <span className="summary-value">{date?.toLocaleDateString()} {time}</span>
                     </div>
                     <div className="summary-item">
-                        <span>Service Center:</span>
-                        <span className="summary-value">Autoville Cyberjaya</span>
+                        <span>Service Center: </span>
+                        <span className="summary-value">{selectedServiceCenter}</span>
                     </div>
                     <div className="summary-item">
                         <span>Car Details:</span>
                         <span className="summary-value">{carDetails.carPlateNo} {carDetails.carModel}</span>
                     </div>
                     <div className="summary-item">
-                        <span>Name</span>
+                        <span>Name:</span>
                         <span className="summary-value">{currentUser?.fname}</span>
                     </div>
                     <div className="summary-item">
-                        <span>Email</span>
+                        <span>Email:</span>
                         <span className="summary-value">{currentUser?.email}</span>
                     </div>
                 </div>

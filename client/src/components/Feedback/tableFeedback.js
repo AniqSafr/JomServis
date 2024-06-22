@@ -5,6 +5,9 @@ import Table from 'react-bootstrap/Table';
 import { UserContext } from '../UserContext'; // Adjust the path as per your context location
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Assuming you're using FontAwesome
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+// import ChatWS from '../Booking/ChatWhatsapp'
+import ChatWS from '../Booking/ChatWhatsappIcon';
+import { Chat } from 'react-bootstrap-icons';
 
 function TableFeedback() {
     const { currentUser } = useContext(UserContext);
@@ -76,6 +79,7 @@ function TableFeedback() {
                                         <th>Date</th>
                                         <th>Car Details</th>
                                         <th>Feedback</th>
+                                        <th>Contact</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -94,6 +98,7 @@ function TableFeedback() {
                                                     </button>
                                                 )}
                                             </td>
+                                            <td> <ChatWS/> </td>
                                         </tr>
                                     ))}
                                 </tbody>

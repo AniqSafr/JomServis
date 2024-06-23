@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './ServiceSummary.css';
+import Chat from "./ChatWhatsapp";
 
 const ServiceSummary = () => {
     const { state } = useLocation();
@@ -41,6 +42,7 @@ const ServiceSummary = () => {
                         <span className="summary-value">{currentUser?.email}</span>
                     </div>
                 </div>
+                <Chat />
             </div>
         </div>
     );

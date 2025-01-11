@@ -7,23 +7,23 @@ app.use(cors());
 const bcrypt = require("bcryptjs");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
-
 const jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
+require('dotenv').config();
 
 const JWT_SECRET =
   "hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe";
 
-const mongoUrl = process.env.MONGO_URL
-
-mongoose
-  .connect(mongoUrl, {
-    useNewUrlParser: true,
-  })
-  .then(() => {
-    console.log("Connected to database");
-  })
-  .catch((e) => console.log(e));
+  const mongoUrl = process.env.MONGO_URL;
+  
+  mongoose
+    .connect(mongoUrl, {
+      useNewUrlParser: true,
+    })
+    .then(() => {
+      console.log("Connected to database");
+    })
+    .catch((e) => console.log("MongoDB connection error:", e));
 
 require("./userDetails");
 require("./inquiries");

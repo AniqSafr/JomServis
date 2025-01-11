@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-require('dotenv').config();
 
 const UserLocation = () => {
   const [location, setLocation] = useState(null);

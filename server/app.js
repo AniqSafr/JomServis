@@ -14,8 +14,7 @@ var nodemailer = require("nodemailer");
 const JWT_SECRET =
   "hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe";
 
-const mongoUrl =
-"mongodb+srv://aniqsafri:aniqsafri@cluster0.5fjyg8l.mongodb.net/Mern_JomServis";
+const mongoUrl = process.env.MONGO_URL
 
 mongoose
   .connect(mongoUrl, {

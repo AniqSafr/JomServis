@@ -4,7 +4,7 @@ const UserLocation = () => {
   const [location, setLocation] = useState(null);
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
-  const apiKey = "317122b5dcfe35d498218d829a5b571a"; // Replace with your actual API key
+  const apiKey = process.env.REACT_OPENWEATHER_MAP_API_KEY;
 
   useEffect(() => {
     const getLocation = () => {
